@@ -6,7 +6,7 @@ import { CoreCommonModule } from '@core/common.module';
 
 import { ContentHeaderModule } from 'app/layout/components/content-header/content-header.module';
 
-import { SampleComponent } from './sample.component';
+
 import { HomeComponent } from './home.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -46,9 +46,9 @@ const routes = [
 ];
 
 @NgModule({
-  declarations: [SampleComponent, HomeComponent, HeroesComponent, DashboardComponent, HeroSearchComponent, HeroDetailComponent, MessageComponent],
+  declarations: [ HomeComponent, HeroesComponent, DashboardComponent, HeroSearchComponent, HeroDetailComponent, MessageComponent],
   imports: [RouterModule.forChild(routes), ContentHeaderModule, TranslateModule, CoreCommonModule, CoreCardModule, BrowserModule, NgbModule, CommonModule, NgSelectModule, NgxDatatableModule],
-  exports: [SampleComponent, HomeComponent],
+  exports: [ HomeComponent],
 
 })
 export class SampleModule { }
