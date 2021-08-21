@@ -6,7 +6,7 @@ import { takeUntil } from 'rxjs/operators';
 import { CoreMenuService } from '@core/components/core-menu/core-menu.service';
 
 @Component({
-  selector: 'app-core-menu',
+  selector: 'core-menu',
   templateUrl: './core-menu.component.html',
   styleUrls: ['./core-menu.component.scss'],
   encapsulation: ViewEncapsulation.None,

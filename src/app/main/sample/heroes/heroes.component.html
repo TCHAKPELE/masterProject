@@ -88,9 +88,9 @@
               </div>
             </ng-template>
           </ngx-datatable-column>
-          <ngx-datatable-column name="Intelligence" prop="Intelligence" [width]="250"></ngx-datatable-column>
-          <ngx-datatable-column name="Force" prop="Force" [width]="250"></ngx-datatable-column>
-          <ngx-datatable-column name="Resistance" prop="Resistance" [width]="250"></ngx-datatable-column>
+          <ngx-datatable-column name="Intelligence" prop="Intelligence" [width]="200"></ngx-datatable-column>
+          <ngx-datatable-column name="Force" prop="Force" [width]="200"></ngx-datatable-column>
+          <ngx-datatable-column name="Resistance" prop="Resistance" [width]="200"></ngx-datatable-column>
           <ngx-datatable-column name="Role" prop="Role" [width]="50">
             <ng-template let-role="value" ngx-datatable-cell-template>
               <div>
@@ -117,8 +117,8 @@
                   <a routerLink="/detail/{{ row.id }}" ngbDropdownItem
                     ><span [data-feather]="'file-text'" [size]="16" [class]="'mr-50'"></span> Details</a
                   >
-                  <button class="delete" title="delete hero" ngbDropdownItem
-                      (click)="delete(hero)"> <span [data-feather]="'trash'" [size]="16" [class]="'mr-50'"></span>{{'SAMPLE.Delete' | translate}}</button> 
+                  <a class="delete" title="delete hero" ngbDropdownItem
+                      >  <button (click)="delete(hero)"> <span [data-feather]="'trash'" [size]="16" [class]="'mr-50'"></span>  {{'SAMPLE.Delete' | translate}}</button></a> 
                     
                   
                 </div>
@@ -147,7 +147,7 @@
   Hero Name: {{ hero.name }}
  </div>
   </pre>
-  <app-message></app-message>
+  
 
 
   

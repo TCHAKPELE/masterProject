@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewEncapsulation } from '@angular/core';
 import { HeroService } from '../../../heroes.service';
 import { Hero } from '../../../hero';
 import { locale as en } from '../i18n/en';
@@ -14,7 +14,8 @@ import { ContentHeader } from '../../../layout/components/content-header/content
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  styleUrls: ['./dashboard.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class DashboardComponent implements OnInit {
 

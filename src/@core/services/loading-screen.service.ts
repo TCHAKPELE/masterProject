@@ -13,13 +13,7 @@ export class CoreLoadingScreenService {
   loadingScreenEl: any;
   animationPlayer: AnimationPlayer;
 
-  /**
-   * Constructor
-   *
-   * @param _document
-   * @param {Router} _router
-   * @param {AnimationBuilder} _animationBuilder
-   */
+ 
   constructor(
     @Inject(DOCUMENT) private _document: any,
     private _router: Router,

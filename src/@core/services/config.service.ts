@@ -18,12 +18,7 @@ export class CoreConfigService {
   private readonly _defaultConfig: any;
   private _configSubject: BehaviorSubject<any>;
 
-  /**
-   * Constructor
-   *
-   * @param _config
-   * @param {Router} _router
-   */
+ 
   constructor(private _router: Router, @Inject(CORE_CUSTOM_CONFIG) private _config) {
     // Get the config from local storage
     if (_config.layout.enableLocalStorage) {

@@ -1,6 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-
-
+import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Hero } from '../../../hero';
 import { HeroService } from '../../../heroes.service';
 import { locale as en } from '../i18n/en';
@@ -11,13 +9,14 @@ import { CoreTranslationService } from '@core/services/translation.service';
 import { TranslateService } from '@ngx-translate/core';
 import { ActivatedRoute } from '@angular/router';
 import { ContentHeader } from '../../../layout/components/content-header/content-header.component';
-import { Observable, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 import { ColumnMode, DatatableComponent } from '@swimlane/ngx-datatable';
 
 @Component({
   selector: 'app-heroes',
   templateUrl: './heroes.component.html',
-  styleUrls: ['./heroes.component.scss']
+  styleUrls: ['./heroes.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class HeroesComponent implements OnInit {
   Baseheroes: Hero[];

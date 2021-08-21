@@ -26,7 +26,7 @@ import { CoreConfigService } from '@core/services/config.service';
 import { CoreSidebarService } from '@core/components/core-sidebar/core-sidebar.service';
 
 @Component({
-  selector: 'app-core-sidebar',
+  selector: 'core-sidebar',
   templateUrl: './core-sidebar.component.html',
   encapsulation: ViewEncapsulation.None
 })

@@ -8,7 +8,7 @@ import { CoreConfigService } from '@core/services/config.service';
 import { CoreSidebarService } from '@core/components/core-sidebar/core-sidebar.service';
 
 @Component({
-  selector: 'app-core-theme-customizer',
+  selector: 'core-theme-customizer',
   templateUrl: './theme-customizer.component.html',
   styleUrls: ['./theme-customizer.component.scss'],
   encapsulation: ViewEncapsulation.None
