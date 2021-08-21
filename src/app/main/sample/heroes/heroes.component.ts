@@ -7,7 +7,6 @@ import { locale as en } from '../i18n/en';
 import { locale as fr } from '../i18n/fr';
 import { locale as de } from '../i18n/de';
 import { locale as pt } from '../i18n/pt';
-
 import { CoreTranslationService } from '@core/services/translation.service';
 import { TranslateService } from '@ngx-translate/core';
 import { ActivatedRoute } from '@angular/router';
@@ -32,18 +31,14 @@ export class HeroesComponent implements OnInit {
 
   @ViewChild(DatatableComponent) table: DatatableComponent;
 
-  constructor(private heroService: HeroService, private _coreTranslationService: CoreTranslationService, private translateService: TranslateService, private route: ActivatedRoute) {
+  constructor(private heroService: HeroService, private _coreTranslationService: CoreTranslationService,
+    private translateService: TranslateService, private route: ActivatedRoute) {
 
     this._coreTranslationService.translate(en, fr, de, pt);
     if (route.snapshot.params.id) {
       this.modifyData = { id: route.snapshot.params.id };
     }
-
-
     this.translateService.onLangChange.subscribe(() => this.update_content_header());
-
-
-
   }
 
   public contentHeader: ContentHeader;

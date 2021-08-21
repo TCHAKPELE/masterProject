@@ -21,7 +21,7 @@ export class CoreMenuService {
   private _currentMenuKey: string;
   private _registry: { [key: string]: any } = {};
 
- 
+
   constructor(private _router: Router, private _authenticationService: AuthenticationService) {
     this._authenticationService.currentUser.subscribe(x => (this.currentUser = x));
 
@@ -43,12 +43,12 @@ export class CoreMenuService {
     return this._onMenuRegistered.asObservable();
   }
 
- 
+
   get onMenuUnregistered(): Observable<any> {
     return this._onMenuUnregistered.asObservable();
   }
 
- 
+
   get onMenuChanged(): Observable<any> {
     return this._onMenuChanged.asObservable();
   }
@@ -56,7 +56,7 @@ export class CoreMenuService {
   // Public methods
   // -----------------------------------------------------------------------------------------------------
 
- 
+
   register(key, menu): void {
     // Confirm if the key already used
     if (this._registry[key]) {
@@ -72,7 +72,7 @@ export class CoreMenuService {
     this._onMenuRegistered.next([key, menu]);
   }
 
-  
+
   unregister(key): void {
     // Confirm if the menu exists
     if (!this._registry[key]) {
@@ -86,7 +86,7 @@ export class CoreMenuService {
     this._onMenuUnregistered.next(key);
   }
 
-  
+
   getMenu(key): any {
     // Confirm if the menu exists
     if (!this._registry[key]) {
@@ -99,7 +99,7 @@ export class CoreMenuService {
     return this._registry[key];
   }
 
- 
+
   getCurrentMenu(): any {
     if (!this._currentMenuKey) {
       console.warn(`The current menu is not set.`);
@@ -110,7 +110,7 @@ export class CoreMenuService {
     return this.getMenu(this._currentMenuKey);
   }
 
-  
+
   setCurrentMenu(key): void {
     // Confirm if the sidebar exists
     if (!this._registry[key]) {

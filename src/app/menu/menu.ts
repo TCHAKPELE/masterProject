@@ -1,7 +1,7 @@
 import { CoreMenu } from '@core/types'
 
 export const menu: CoreMenu[] = [
- 
+
   {
     id: 'heroes',
     title: 'Heroes',
@@ -17,5 +17,4 @@ export const menu: CoreMenu[] = [
     type: 'item',
     icon: 'file',
     url: '/dashboard'
-  }
-]
+  }]

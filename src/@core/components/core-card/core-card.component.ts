@@ -47,7 +47,7 @@ export class CoreCardComponent implements OnInit {
   @ViewChild('coreCard') private coreCard: ElementRef;
   @ViewChild('cardHeader') private cardHeader: ElementRef;
 
-  
+
   constructor(private blockUIService: BlockUIService) {
     this.events = new EventEmitter<any>();
   }
