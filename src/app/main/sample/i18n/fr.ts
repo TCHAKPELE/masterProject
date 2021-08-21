@@ -1,0 +1,43 @@
+export const locale = {
+  lang: 'fr',
+  data: {
+    SAMPLE: {
+      AWESOME: 'Créer génial 🙌',
+      HEROES: 'Mes Heros',
+      TOP_HEROES: 'Top des Heros',
+      List: 'Liste',
+      Details: 'Détails',
+      HeroName: 'Nom des Héros',
+      GoBack: 'Retour arrière',
+      Save: 'Sauvegarder',
+      HeroSearch: 'Recherche Héros',
+      Delete: 'Supprimer',
+      HomeText1: 'Lancez votre projet',
+      HomeText2: 'Pour les développeurs WhiteDev !',
+      HomeText3: 'Bonne chance pour votre nouveau projet et plus encore !',
+      HomeText4: 'Veillez à lire notre',
+      HomeText5: 'Documentation du modèle',
+      HomeText6: ' pour comprendre où aller d"ici et comment utiliser notre modèle.',
+      AddHero: 'Ajout de Héro',
+      DASHBOARD: 'Tableau de Bord',
+      ENGLISH: 'Anglais',
+      FRENCH: 'Français',
+      DEUTSCH: 'Allemand',
+      PORTUGES: 'Portugais',
+      Name: 'Nom',
+      Force: 'Force',
+      IntelligenceLevel: 'Niveau intelligence',
+      Resistance: 'Résistance',
+      AffiniteElementaire: 'Affinité Elémentaire',
+      Guerrier: 'Guérrier',
+      Mage: 'Mage',
+      Soigneur: 'Soigneur',
+      Role: 'Rôle',
+      Fire: 'Feu',
+      Water: 'Eau',
+      Earth: 'Terre',
+      Wind: 'Vent',
+      HeroStat: 'Statistique Héro'
+    }
+  }
+}
