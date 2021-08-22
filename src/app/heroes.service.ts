@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-
 import { Hero } from './hero';
 import { MessageService } from './message.service';
 
@@ -11,7 +9,7 @@ import { MessageService } from './message.service';
 @Injectable({ providedIn: 'root' })
 export class HeroService {
 
-  private heroesUrl = 'http://localhost:3000/heroes';  // URL to web api
+  private heroesUrl = 'api/heroes';  // URL to web api
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -22,27 +20,11 @@ export class HeroService {
     private messageService: MessageService) { }
 
   /** GET heroes from the server */
-  getHeroes(): Observable<any> {
-    console.log('toto');
-    return this.http.get(this.heroesUrl)
+  getHeroes(): Observable<Hero[]> {
+    return this.http.get<Hero[]>(this.heroesUrl)
       .pipe(
         tap(_ => this.log('fetched heroes')),
         catchError(this.handleError<Hero[]>('getHeroes', []))
-      );
-      
-  }
-
-  /** GET heroes from the server by Role */
-  getHeroesbyRole<Data>(Role: string): Observable<Hero> {
-    const url = `${this.heroesUrl}/?Role=${Role}`;
-    return this.http.get<Hero[]>(url)
-      .pipe(
-        map(heroes => heroes[0]), // returns a {0|1} element array
-        tap(h => {
-          const outcome = h ? `fetched` : `did not find`;
-          this.log(`${outcome} hero Role=${Role}`);
-        }),
-        catchError(this.handleError<Hero>(`getHero Role=${Role}`))
       );
   }
 
@@ -124,12 +106,6 @@ export class HeroService {
     );
   }
 
-  /**
-   * Handle Http operation that failed.
-   * Let the app continue.
-   * @param operation - name of the operation that failed
-   * @param result - optional value to return as the observable result
-   */
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
@@ -146,6 +122,6 @@ export class HeroService {
 
   /** Log a HeroService message with the MessageService */
   private log(message: string) {
-    this.messageService.add(`HeroService: ${message}`);
+    this.messageService.add(`${message}`);
   }
 }

@@ -40,12 +40,21 @@ export class NavbarBookmarkComponent implements OnInit {
     }
   }
 
-
-  constructor(@Inject(DOCUMENT) private document, public _searchService: SearchService) { }
+  /**
+   *
+   * @param document
+   * @param _searchService
+   */
+  constructor(@Inject(DOCUMENT) private document, public _searchService: SearchService) {}
 
   // Public Methods
   // -----------------------------------------------------------------------------------------------------
 
+  /**
+   * Add Bookmark
+   *
+   * @param id
+   */
   addBookmark(id) {
     const index = this.pages.findIndex(object => {
       return object.id === id;
@@ -55,7 +64,11 @@ export class NavbarBookmarkComponent implements OnInit {
     this.bookmarkedItems.push(this.pages[index]);
   }
 
-
+  /**
+   * Remove Bookmark
+   *
+   * @param id
+   */
   removeBookmark(id) {
     const index = this.bookmarkedItems.findIndex(object => {
       return object.id === id;
@@ -101,7 +114,11 @@ export class NavbarBookmarkComponent implements OnInit {
     this.activeIndex = this.activeIndex > 0 ? --this.activeIndex : 0;
   }
 
-
+  /**
+   * Auto Suggestion
+   *
+   * @param event
+   */
   autoSuggestion(event) {
     if (38 === event.keyCode) {
       return this.prevActiveMatch();
@@ -111,7 +128,11 @@ export class NavbarBookmarkComponent implements OnInit {
     }
   }
 
-
+  /**
+   * Toggle Bookmark
+   *
+   * @param id
+   */
   toggleBookmark(id) {
     const index = this.pages.findIndex(object => {
       return object.id === id;
@@ -139,6 +160,11 @@ export class NavbarBookmarkComponent implements OnInit {
     }, 0);
   }
 
+  /**
+   * Update Bookmark
+   *
+   * @param event
+   */
   bookmarkUpdate(event) {
     const val = event.target.value.toLowerCase();
     if (val !== '') {

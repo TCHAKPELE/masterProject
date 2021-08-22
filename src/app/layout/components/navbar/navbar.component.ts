@@ -13,13 +13,20 @@ import { CoreConfigService } from '@core/services/config.service';
 import { CoreMediaService } from '@core/services/media.service';
 
 import { User } from 'app/auth/models';
-import { coreConfig } from 'app/app-config';
 import { Router } from '@angular/router';
 import { locale as en } from '../../../main/sample/i18n/en';
 import { locale as fr } from '../../../main/sample/i18n/fr';
 import { locale as de } from '../../../main/sample/i18n/de';
 import { locale as pt } from '../../../main/sample/i18n/pt';
+import {MessageService} from '../../../message.service';
 
+// Interface
+interface notification {
+  messages: [];
+  number :[];
+  systemMessages: [];
+  system: Boolean;
+}
 
 @Component({
   selector: 'app-navbar',
@@ -40,6 +47,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
   public languageOptions: any;
   public navigation: any;
   public selectedLanguage: any;
+  public notifications: notification;
+
 
   @HostBinding('class.fixed-top')
   public isFixed = false;
@@ -52,7 +61,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   onWindowScroll() {
     if (
       (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop > 100) &&
-      this.coreConfig.layout.navbar.type === 'navbar-static-top'
+      this.coreConfig.layout.navbar.type == 'navbar-static-top'
     ) {
       this.windowScrolled = true;
     } else if (
@@ -67,7 +76,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
   // Private
   private _unsubscribeAll: Subject<any>;
 
- 
   constructor(
     private _router: Router,
     private _authenticationService: AuthenticationService,
@@ -76,7 +84,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
     private _coreSidebarService: CoreSidebarService,
     private _mediaObserver: MediaObserver,
     public _translateService: TranslateService,
-    private _coreTranslationService: CoreTranslationService
+    private _coreTranslationService: CoreTranslationService,
+    public messageService : MessageService
   ) {
 
     this._coreTranslationService.translate(en, fr, de, pt);
@@ -126,7 +135,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this._coreSidebarService.getSidebarRegistry(key).toggleOpen();
   }
 
- 
+  
   setLanguage(language): void {
     // Set the selected language for the navbar on change
     this.selectedLanguage = language;
@@ -179,8 +188,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
     // get the currentUser details from localStorage
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
-    console.log(this.currentUser);
-
     // Subscribe to the config changes
     this._coreConfigService.config.pipe(takeUntil(this._unsubscribeAll)).subscribe(config => {
       this.coreConfig = config;
@@ -215,6 +222,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.selectedLanguage = _.find(this.languageOptions, {
       id: this._translateService.currentLang
     });
+
+    
   }
 
   /**

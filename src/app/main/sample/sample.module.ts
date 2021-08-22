@@ -1,12 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
-
 import { CoreCommonModule } from '@core/common.module';
-
 import { ContentHeaderModule } from 'app/layout/components/content-header/content-header.module';
-
-
+import { SampleComponent } from './sample.component';
 import { HomeComponent } from './home.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -19,15 +16,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { CommonModule } from '@angular/common';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
-
+import { Ng2FlatpickrModule } from 'ng2-flatpickr';
 
 const routes = [
 
-  //{
-  // path: 'home',
-  //component: HomeComponent,
-  //data: { animation: 'home' }
-  //},
+  {
+    path: 'home',
+    component: HomeComponent,
+    data: { animation: 'home' }
+  },
   {
     path: 'heroes',
     component: HeroesComponent,
@@ -46,9 +43,9 @@ const routes = [
 ];
 
 @NgModule({
-  declarations: [ HomeComponent, HeroesComponent, DashboardComponent, HeroSearchComponent, HeroDetailComponent, MessageComponent],
-  imports: [RouterModule.forChild(routes), ContentHeaderModule, TranslateModule, CoreCommonModule, CoreCardModule, BrowserModule, NgbModule, CommonModule, NgSelectModule, NgxDatatableModule],
-  exports: [ HomeComponent],
+  declarations: [SampleComponent, HomeComponent, HeroesComponent, DashboardComponent, HeroSearchComponent, HeroDetailComponent, MessageComponent],
+  imports: [RouterModule.forChild(routes), ContentHeaderModule, TranslateModule, CoreCommonModule, CoreCardModule, BrowserModule, NgbModule, CommonModule, NgSelectModule, NgxDatatableModule, Ng2FlatpickrModule],
+  exports: [SampleComponent, HomeComponent],
 
 })
 export class SampleModule { }

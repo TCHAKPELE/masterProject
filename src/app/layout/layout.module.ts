@@ -10,4 +10,4 @@ import { HorizontalLayoutModule } from 'app/layout/horizontal/horizontal-layout.
   providers: [CustomBreakPointsProvider],
   exports: [VerticalLayoutModule, HorizontalLayoutModule]
 })
-export class LayoutModule {}
+export class LayoutModule { }

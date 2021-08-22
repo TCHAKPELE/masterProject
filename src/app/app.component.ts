@@ -1,17 +1,15 @@
 import { Component, Inject, OnDestroy, OnInit, ElementRef, Renderer2 } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { Title } from '@angular/platform-browser';
-
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
 import * as Waves from 'node-waves';
-
 import { CoreMenuService } from '@core/components/core-menu/core-menu.service';
 import { CoreSidebarService } from '@core/components/core-sidebar/core-sidebar.service';
 import { CoreConfigService } from '@core/services/config.service';
+import { CoreLoadingScreenService } from '@core/services/loading-screen.service';
 import { CoreTranslationService } from '@core/services/translation.service';
-
 import { menu } from 'app/menu/menu';
 import { locale as menuEnglish } from 'app/menu/i18n/en';
 import { locale as menuFrench } from 'app/menu/i18n/fr';
@@ -32,7 +30,7 @@ export class AppComponent implements OnInit, OnDestroy {
   // Private
   private _unsubscribeAll: Subject<any>;
 
- 
+
   constructor(
     @Inject(DOCUMENT) private document: any,
     private _title: Title,
@@ -40,6 +38,7 @@ export class AppComponent implements OnInit, OnDestroy {
     private _elementRef: ElementRef,
     public _coreConfigService: CoreConfigService,
     private _coreSidebarService: CoreSidebarService,
+    private _coreLoadingScreenService: CoreLoadingScreenService,
     private _coreMenuService: CoreMenuService,
     private _coreTranslationService: CoreTranslationService,
     private _translateService: TranslateService

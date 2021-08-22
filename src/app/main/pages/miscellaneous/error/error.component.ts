@@ -16,7 +16,11 @@ export class ErrorComponent implements OnInit {
   // Private
   private _unsubscribeAll: Subject<any>;
 
-
+  /**
+   * Constructor
+   *
+   * @param {CoreConfigService} _coreConfigService
+   */
   constructor(private _coreConfigService: CoreConfigService) {
     this._unsubscribeAll = new Subject();
 

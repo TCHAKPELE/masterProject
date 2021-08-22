@@ -6,7 +6,7 @@ import { takeUntil } from 'rxjs/operators';
 import { CoreConfigService } from '@core/services/config.service';
 
 @Component({
-  selector: 'app-horizontal-layout',
+  selector: 'horizontal-layout',
   templateUrl: './horizontal-layout.component.html',
   styleUrls: ['./horizontal-layout.component.scss'],
   encapsulation: ViewEncapsulation.None
@@ -17,7 +17,6 @@ export class HorizontalLayoutComponent implements OnInit, OnDestroy {
   // Private
   private _unsubscribeAll: Subject<any>;
 
- 
   constructor(private _coreConfigService: CoreConfigService) {
     // Set the private defaults
     this._unsubscribeAll = new Subject();

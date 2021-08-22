@@ -11,7 +11,10 @@ export class NotificationsService {
   public apiData = [];
   public onApiDataChange: BehaviorSubject<any>;
 
- 
+  /**
+   *
+   * @param {HttpClient} _httpClient
+   */
   constructor(private _httpClient: HttpClient) {
     this.onApiDataChange = new BehaviorSubject('');
     this.getNotificationsData();

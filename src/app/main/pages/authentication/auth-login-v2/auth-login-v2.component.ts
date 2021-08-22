@@ -21,12 +21,16 @@ export class AuthLoginV2Component implements OnInit {
   public returnUrl: string;
   public error = '';
   public passwordTextType: boolean;
-  public listItems = { 'email': '', 'password': '' };
+  public listItems = { "email": "", "password": "" };
 
   // Private
   private _unsubscribeAll: Subject<any>;
 
-
+  /**
+   * Constructor
+   *
+   * @param {CoreConfigService} _coreConfigService
+   */
   constructor(
     private _coreConfigService: CoreConfigService,
     private _formBuilder: FormBuilder,

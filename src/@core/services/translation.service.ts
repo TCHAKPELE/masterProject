@@ -11,13 +11,21 @@ export interface Locale {
   providedIn: 'root'
 })
 export class CoreTranslationService {
-  
+  /**
+   * Constructor
+   *
+   * @param {TranslateService} _translateService
+   */
   constructor(private _translateService: TranslateService) {}
 
   // Public methods
   // -----------------------------------------------------------------------------------------------------
 
-  
+  /**
+   * Translate
+   *
+   * @param {Locale} args
+   */
   translate(...args: Locale[]): void {
     const locales = [...args];
 

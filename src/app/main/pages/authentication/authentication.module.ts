@@ -22,4 +22,4 @@ const routes: Routes = [
   declarations: [AuthLoginV2Component],
   imports: [CommonModule, RouterModule.forChild(routes), NgbModule, FormsModule, ReactiveFormsModule, CoreCommonModule]
 })
-export class AuthenticationModule {}
+export class AuthenticationModule { }

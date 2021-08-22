@@ -8,7 +8,7 @@ import { CoreMenuService } from '@core/components/core-menu/core-menu.service';
 import { CoreSidebarService } from '@core/components/core-sidebar/core-sidebar.service';
 
 @Component({
-  selector: 'app-horizontal-menu',
+  selector: 'horizontal-menu',
   templateUrl: './horizontal-menu.component.html',
   styleUrls: ['./horizontal-menu.component.scss'],
   encapsulation: ViewEncapsulation.None
@@ -20,7 +20,13 @@ export class HorizontalMenuComponent implements OnInit, OnDestroy {
   // Private
   private _unsubscribeAll: Subject<any>;
 
-
+  /**
+   * Constructor
+   *
+   * @param {CoreConfigService} _coreConfigService
+   * @param {CoreMenuService} _coreMenuService
+   * @param {CoreSidebarService} _coreSidebarService
+   */
   constructor(
     private _coreConfigService: CoreConfigService,
     private _coreMenuService: CoreMenuService,

@@ -36,7 +36,12 @@ export class NavbarSearchComponent implements OnInit {
     }
   }
 
-  
+  /**
+   *
+   * @param document
+   * @param router
+   * @param _searchService
+   */
   constructor(
     @Inject(DOCUMENT) private document,
     private _elementRef: ElementRef,
@@ -106,6 +111,11 @@ export class NavbarSearchComponent implements OnInit {
     }
   }
 
+  /**
+   * Search Update
+   *
+   * @param event
+   */
   searchUpdate(event) {
     const val = event.target.value.toLowerCase();
     if (val !== '') {

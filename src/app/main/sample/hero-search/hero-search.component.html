@@ -1,15 +1,15 @@
 <div id="search-component">
-    <label for="search-box">{{'SAMPLE.HeroSearch' | translate}} </label>
-    <input #searchBox id="search-box" (input)="search(searchBox.value)" />
-  
-    <ul class="search-result">
-      <li *ngFor="let hero of heroes$ | async" >
-        <a routerLink="/detail/{{hero.id}}">
-          {{hero.name}} <div class="avatar bg-light-primary">
-            <span class="avatar-content"><span [data-feather]="'github'" [class]="'avatar-icon'"></span></span>
-            <span class="avatar-status-away"></span>
-          </div>
-        </a>
-      </li>
-    </ul>
-  </div>
+  <label for="search-box">{{'SAMPLE.HeroSearch' | translate}} </label>
+  <input #searchBox id="search-box" (input)="search(searchBox.value)" />
+
+  <ul class="search-result">
+    <li *ngFor="let hero of heroes$ | async">
+      <a routerLink="/detail/{{hero.id}}">
+        {{hero.name}} <div class="avatar bg-light-primary">
+          <span class="avatar-content"><span [data-feather]="'github'" [class]="'avatar-icon'"></span></span>
+          <span class="avatar-status-away"></span>
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>

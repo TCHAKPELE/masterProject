@@ -1,4 +1,4 @@
-import { Component, OnInit,ViewEncapsulation } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HeroService } from '../../../heroes.service';
 import { Hero } from '../../../hero';
 import { locale as en } from '../i18n/en';
@@ -8,14 +8,12 @@ import { locale as pt } from '../i18n/pt';
 
 import { CoreTranslationService } from '@core/services/translation.service';
 import { TranslateService } from '@ngx-translate/core';
-
 import { ContentHeader } from '../../../layout/components/content-header/content-header.component';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
 
@@ -55,7 +53,6 @@ export class DashboardComponent implements OnInit {
 
     this.getHeroes();
   }
-
 
   update_content_header(): void {
     this.contentHeader.headerTitle = this.translateService.instant('SAMPLE.DASHBOARD');

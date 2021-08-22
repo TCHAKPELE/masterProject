@@ -10,7 +10,7 @@ import { CoreMenuService } from '@core/components/core-menu/core-menu.service';
 import { User } from 'app/auth/models';
 
 @Component({
-  selector: 'core-menu-vertical-collapsible',
+  selector: '[core-menu-vertical-collapsible]',
   templateUrl: './collapsible.component.html'
 })
 export class CoreMenuVerticalCollapsibleComponent implements OnInit, OnDestroy {
@@ -25,7 +25,13 @@ export class CoreMenuVerticalCollapsibleComponent implements OnInit, OnDestroy {
   // Private
   private _unsubscribeAll: Subject<any>;
 
-  
+  /**
+   * Constructor
+   *
+   * @param {Router} _router
+   * @param {CoreMenuService} _coreMenuService
+   * @param {ChangeDetectorRef} _changeDetectorRef
+   */
   constructor(
     private _router: Router,
     private _coreMenuService: CoreMenuService,
@@ -103,7 +109,11 @@ export class CoreMenuVerticalCollapsibleComponent implements OnInit, OnDestroy {
   // Public methods
   // -----------------------------------------------------------------------------------------------------
 
-  
+  /**
+   * Toggle collapse
+   *
+   * @param e
+   */
   toggleOpen(e): void {
     e.preventDefault();
 
@@ -146,6 +156,13 @@ export class CoreMenuVerticalCollapsibleComponent implements OnInit, OnDestroy {
     this._coreMenuService.onItemCollapseToggled.next();
   }
 
+  /**
+   * Confirms if the provided url can be found in one of the given parent's children
+   *
+   * @param parent
+   * @param url
+   * @returns {boolean}
+   */
   confirmUrlInChildren(parent, url): boolean {
     const children = parent.children;
 
@@ -173,7 +190,13 @@ export class CoreMenuVerticalCollapsibleComponent implements OnInit, OnDestroy {
     return false;
   }
 
- 
+  /**
+   * Check if the provided parent has the provided item in one of its children
+   *
+   * @param parent
+   * @param item
+   * @returns {boolean}
+   */
   confirmItemInChildren(parent, item): boolean {
     const children = parent.children;
 

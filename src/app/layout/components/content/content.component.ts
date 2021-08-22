@@ -17,13 +17,22 @@ export class ContentComponent {
   // Private
   private _unsubscribeAll: Subject<any>;
 
-  
+  /**
+   * Constructor
+   *
+   * @param {CoreConfigService} _coreConfigService
+   *
+   */
   constructor(private _coreConfigService: CoreConfigService) {
     // Set the private defaults
     this._unsubscribeAll = new Subject();
   }
 
-  
+  /**
+   * Fade In Left Animation
+   *
+   * @param outlet
+   */
   fadeInLeft(outlet) {
     if (this.animate === 'fadeInLeft') {
       return outlet.activatedRouteData.animation;
@@ -31,7 +40,11 @@ export class ContentComponent {
     return null;
   }
 
-  
+  /**
+   * Zoom In Animation
+   *
+   * @param outlet
+   */
   zoomIn(outlet) {
     if (this.animate === 'zoomIn') {
       return outlet.activatedRouteData.animation;
@@ -39,7 +52,11 @@ export class ContentComponent {
     return null;
   }
 
-  
+  /**
+   * Fade In Animation
+   *
+   * @param outlet
+   */
   fadeIn(outlet) {
     if (this.animate === 'fadeIn') {
       return outlet.activatedRouteData.animation;

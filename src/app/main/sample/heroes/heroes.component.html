@@ -1,60 +1,61 @@
 <div class="content-wrapper">
-    <div class="content-body">
-      <!-- content-header component -->
-      <app-content-header [contentHeader]="contentHeader"></app-content-header>
-  
-      <!-- Basic Alerts start -->
-      <section id="sample-page">
-<!-- Filter Menu -->
-        <div class="card">
-          <h5 class="card-header">Search Filter</h5>
-          <div class="card-body">
-            <div class="users-list-filter">
-              <form>
-                <div class="row">
-                  <div class="col-12 col-md-4">
-                    <fieldset class="form-group">
-                      <ng-select [items]="selectRole" [(ngModel)]="selectedRole" name="selectedRole" bindLabel="name" placeholder="" (change)="filterByRole($event)"></ng-select>
-                    </fieldset>
-                  </div>
+  <div class="content-body">
+    <!-- content-header component -->
+    <app-content-header [contentHeader]="contentHeader"></app-content-header>
+
+    <!-- Basic Alerts start -->
+    <section id="sample-page">
+      <!-- Filter Menu -->
+      <div class="card">
+        <h5 class="card-header">Search Filter</h5>
+        <div class="card-body">
+          <div class="users-list-filter">
+            <form>
+              <div class="row">
+                <div class="col-12 col-md-4">
+                  <fieldset class="form-group">
+                    <ng-select [items]="selectRole" [(ngModel)]="selectedRole" name="selectedRole" bindLabel="name"
+                      placeholder="" (change)="filterByRole($event)"></ng-select>
+                  </fieldset>
                 </div>
-              </form>
-            </div>
+              </div>
+            </form>
           </div>
         </div>
-<!-- Filter Menu -->
-<div class="card">
-  <h5 class="card-header">{{ 'SAMPLE.HEROES' | translate }}</h5>
-  <div class="card-body">
-    <div class="users-list-filter">
-      
-        <div class="row">
-          <div class="col-md-12 col-12 d-flex justify-content-start justify-content-md-end">
-            <div class="d-flex align-items-center justify-content-end pr-1 pb-1 pb-md-0">
-              <label class="d-flex align-items-center ml-1 ml-md-0"
-                >{{'SAMPLE.HeroName' | translate}}:<input id="new-hero" #heroName class="form-control ml-25" /></label>
-              <button class="btn btn-primary ml-1" rippleEffect (click)="add(heroName.value); heroName.value=''">
-                <i data-feather="plus" class="d-sm-none d-inline-block mr-0 mr-sm-1"></i
-                ><span class="d-none d-sm-inline-block">{{'SAMPLE.AddHero' | translate}}</span>
-              </button>
+      </div>
+      <!-- Filter Menu -->
+      <div class="card">
+        <h5 class="card-header">{{ 'SAMPLE.HEROES' | translate }}</h5>
+        <div class="card-body">
+          <div class="users-list-filter">
+
+            <div class="row">
+              <div class="col-md-12 col-12 d-flex justify-content-start justify-content-md-end">
+                <div class="d-flex align-items-center justify-content-end pr-1 pb-1 pb-md-0">
+                  <label class="d-flex align-items-center ml-1 ml-md-0">{{'SAMPLE.HeroName' | translate}}:<input
+                      id="new-hero" #heroName class="form-control ml-25" required /></label>
+                  <button class="btn btn-primary ml-1" rippleEffect (click)="add(heroName.value); heroName.value=''">
+                    <i data-feather="plus" class="d-sm-none d-inline-block mr-0 mr-sm-1"></i><span
+                      class="d-none d-sm-inline-block">{{'SAMPLE.AddHero' | translate}}</span>
+                  </button>
+                </div>
+              </div>
             </div>
+
           </div>
         </div>
-      
-    </div>
-  </div>
-</div>
-        <div class="row">
-          <div class="col-12">
-            <div class="card">
-              <div class="card-header">
-              </div>
-              <div class="card-body pb-1">
-                
-                
-              </div>
-                
-              <!--  <ul class="heroes">
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+            </div>
+            <div class="card-body pb-1">
+
+
+            </div>
+
+            <!--  <ul class="heroes">
                   <li *ngFor="let hero of heroes">
                     <a routerLink="/detail/{{hero.id}}">
                       <span class="badge">{{hero.id}}</span> {{hero.name}}
@@ -64,93 +65,83 @@
                   </li>
                 
                 </ul>-->
-                <div>
-                  <ngx-datatable
-          [rows]="rows"
-          [rowHeight]="50"
-          class="bootstrap core-bootstrap"
-          [limit]="selectedOption"
-          [columnMode]="ColumnMode.force"
-          [headerHeight]="50"
-          [footerHeight]="50"
-          [scrollbarH]="true"
-        >
-          <ngx-datatable-column name="Name" prop="Name" [width]="200">
-            <ng-template let-row="row" let-name="value" ngx-datatable-cell-template>
-              <div class="d-flex align-items-center">
-                
-                <div class="cell-line-height">
-                  <a routerLink="/detail/{{ row.id }}" class="font-medium-1 d-block"
-                    ><span class="font-weight-bold">{{ row.name }}</span></a
-                  >
-                  
-                </div>
-              </div>
-            </ng-template>
-          </ngx-datatable-column>
-          <ngx-datatable-column name="Intelligence" prop="Intelligence" [width]="200"></ngx-datatable-column>
-          <ngx-datatable-column name="Force" prop="Force" [width]="200"></ngx-datatable-column>
-          <ngx-datatable-column name="Resistance" prop="Resistance" [width]="200"></ngx-datatable-column>
-          <ngx-datatable-column name="Role" prop="Role" [width]="50">
-            <ng-template let-role="value" ngx-datatable-cell-template>
-              <div>
-                <i
-                  class="feather font-medium-3"
-                  [ngClass]="{
+            <div>
+              <ngx-datatable [rows]="rows" [rowHeight]="60" class="bootstrap core-bootstrap" [limit]="selectedOption"
+                [columnMode]="ColumnMode.force" [headerHeight]="60" [footerHeight]="60" [scrollbarH]="true" [loadingIndicator]="loading"  
+                >
+                <ngx-datatable-column name="Name" prop="Name" [width]="200">
+                  <ng-template let-row="row" let-name="value" ngx-datatable-cell-template>
+                    <div class="d-flex align-items-center">
+
+                      <div class="cell-line-height">
+                        <a routerLink="/detail/{{ row.id }}" class="font-medium-1 d-block"><span
+                            class="font-weight-bold">{{ row.name }}</span></a>
+
+                      </div>
+                    </div>
+                  </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column name="Intelligence" prop="Intelligence" [width]="200"></ngx-datatable-column>
+                <ngx-datatable-column name="Force" prop="Force" [width]="200"></ngx-datatable-column>
+                <ngx-datatable-column name="Resistance" prop="Resistance" [width]="200"></ngx-datatable-column>
+                <ngx-datatable-column name="Role" prop="Role" [width]="100">
+                  <ng-template let-role="value" ngx-datatable-cell-template>
+                    <div>
+                      <i class="feather font-medium-3" [ngClass]="{
                     'icon-edit-2 text-info': role == 'Guerrier',
                     'icon-settings text-warning': role == 'Mage',
                     'icon-database text-success': role == 'Soigneur'
                   
-                  }"
-                ></i>
-                {{ role }}
-              </div>
-            </ng-template>
-          </ngx-datatable-column>
-          <ngx-datatable-column name="Actions" [width]="40" [sortable]="false">
-            <ng-template ngx-datatable-cell-template let-row="row">
-              <div ngbDropdown container="body">
-                <button ngbDropdownToggle type="button" class="btn icon-btn btn-sm hide-arrow" rippleEffect>
-                  <span [data-feather]="'more-vertical'" [class]="'cursor-pointer'"></span>
-                </button>
-                <div ngbDropdownMenu>
-                  <a routerLink="/detail/{{ row.id }}" ngbDropdownItem
-                    ><span [data-feather]="'file-text'" [size]="16" [class]="'mr-50'"></span> Details</a
-                  >
-                  <a class="delete" title="delete hero" ngbDropdownItem
-                      >  <button (click)="delete(hero)"> <span [data-feather]="'trash'" [size]="16" [class]="'mr-50'"></span>  {{'SAMPLE.Delete' | translate}}</button></a> 
+                  }"></i>
+                      {{ role }}
+                    </div>
+                  </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column name="Actions" [width]="50" [sortable]="false">
+                  <ng-template ngx-datatable-cell-template let-row="row">
+                    <div ngbDropdown container="body">
+                      <button ngbDropdownToggle type="button" class="btn icon-btn btn-sm hide-arrow" rippleEffect>
+                        <span [data-feather]="'more-vertical'" [class]="'cursor-pointer'"></span>
+                      </button>
+                      <div ngbDropdownMenu>
+                        <a routerLink="/detail/{{ row.id }}" ngbDropdownItem><span [data-feather]="'file-text'"
+                            [size]="16" [class]="'mr-50'"></span> Details</a>
+                      </div>
+                    </div>
+                  </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column name="Delete" [width]="50" [sortable]="false">
+                  <ng-template ngx-datatable-cell-template let-row="row">
+                    <div ngbDropdown container="body">
+                      <button ngbDropdownToggle type="button" class="btn icon-btn btn-sm hide-arrow" (click)="delete(row)" rippleEffect>
+                        <span [data-feather]="'trash'" [class]="'mr-50'"></span>
+                      </button>
+                     
+                    </div>
                     
+                  </ng-template>
                   
-                </div>
-              </div>
-            </ng-template>
-          </ngx-datatable-column>
-        </ngx-datatable>
-                </div>
-
-
-                
-              </div>
+                </ngx-datatable-column>
+               
+              </ngx-datatable>
             </div>
+
+
+
           </div>
-        
-      </section>
-      <!-- Basic Alerts end -->
-    </div>
+        </div>
+      </div>
+
+    </section>
+    <!-- Basic Alerts end -->
   </div>
-  <div class="row">
-    
-  </div>
-  <pre class="p-1 text-white mt-1">
+</div>
+<div class="row">
+
+</div>
+<pre class="p-1 text-white mt-1">
     <div  *ngFor="let hero of rows;; let i = index">
   Rank: {{ hero.id }}
   Hero Name: {{ hero.name }}
  </div>
   </pre>
-  
-
-
-  
-  
-  
-  

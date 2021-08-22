@@ -9,7 +9,12 @@ import { Component, ElementRef, Input, Renderer2, ViewEncapsulation } from '@ang
 export class MenuComponent {
   private _menuType: string;
 
-
+  /**
+   * Constructor
+   *
+   * @param {ElementRef} _elementRef
+   * @param {Renderer2} _renderer
+   */
   constructor(private _elementRef: ElementRef, private _renderer: Renderer2) {
     // Set the default menu
     this._menuType = 'vertical-menu';
@@ -18,13 +23,13 @@ export class MenuComponent {
   // Accessors
   // -----------------------------------------------------------------------------------------------------
 
-  // Get the menu type
+  //Get the menu type
   get menuType(): string {
     return this._menuType;
   }
 
   @Input()
-  // Set the menu type to the native element
+  //Set the menu type to the native element
   set menuType(value: string) {
     // Remove the old class name from native element
     this._renderer.removeClass(this._elementRef.nativeElement, this.menuType);

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MessageService } from '../../../message.service';
 
 // Interface
-interface Notification {
+interface notification {
   messages: [];
   systemMessages: [];
   system: Boolean;
@@ -15,12 +15,12 @@ interface Notification {
 })
 export class MessageComponent implements OnInit {
 
-  public notifications: Notification;
+  public notifications: notification;
 
   constructor(public messageService: MessageService) { }
 
   ngOnInit(): void {
-    this.notifications;
+  
   }
 
 }

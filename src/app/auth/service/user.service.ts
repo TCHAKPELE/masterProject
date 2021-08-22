@@ -6,7 +6,10 @@ import { User } from 'app/auth/models';
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
- 
+  /**
+   *
+   * @param {HttpClient} _http
+   */
   constructor(private _http: HttpClient) {}
 
   /**

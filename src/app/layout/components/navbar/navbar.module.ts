@@ -33,4 +33,4 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   ],
   exports: [NavbarComponent]
 })
-export class NavbarModule {}
+export class NavbarModule { }

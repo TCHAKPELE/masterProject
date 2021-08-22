@@ -30,8 +30,7 @@ export class HeroesComponent implements OnInit {
 
   @ViewChild(DatatableComponent) table: DatatableComponent;
 
-  constructor(private heroService: HeroService, private _coreTranslationService: CoreTranslationService,
-    private translateService: TranslateService, private route: ActivatedRoute) {
+  constructor(private heroService: HeroService, private _coreTranslationService: CoreTranslationService, private translateService: TranslateService, private route: ActivatedRoute) {
 
     this._coreTranslationService.translate(en, fr, de, pt);
     if (route.snapshot.params.id) {
@@ -49,27 +48,25 @@ export class HeroesComponent implements OnInit {
   ];
 
   public selectedRole = [];
-
+  public page: number = 1;
+  public loading: boolean = false;
 
   public previousRoleFilter = new Subject<string>();
-
 
   filterUpdate(event) {
 
     // Reset ng-select on search
     this.selectedRole = this.selectRole[0];
 
-
     const val = event.target.value.toLowerCase();
 
   }
-
 
   filterByRole(event) {
     const filter = event.value;
     //console.log(this.Baseheroes);
 
-    if (filter === "All") {
+    if (filter == "All") {
 
       this.rows = this.Baseheroes;
       this.heroService.getHeroes()
@@ -96,11 +93,7 @@ export class HeroesComponent implements OnInit {
             name: this.translateService.instant('SAMPLE.HEROES'),
             isLink: true,
             link: '/heroes'
-          },
-          // {
-          // name: 'Heroes',
-          // isLink: false
-          //}
+          }
 
         ]
       }
@@ -113,8 +106,13 @@ export class HeroesComponent implements OnInit {
   }
 
   getHeroes(): void {
+    this.loading = true;
     this.heroService.getHeroes()
-      .subscribe(rows => this.rows = rows
+      .subscribe(
+        (rows) => {
+          this.rows = rows;
+          this.loading = false;
+        }
 
       );
   }
@@ -137,6 +135,8 @@ export class HeroesComponent implements OnInit {
       .subscribe(hero => {
         this.rows.push(hero);
       });
+    this.getHeroes();
+
   }
 
   delete(hero: Hero): void {

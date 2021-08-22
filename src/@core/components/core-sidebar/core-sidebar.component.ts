@@ -89,6 +89,19 @@ export class CoreSidebarComponent implements OnInit, OnDestroy {
   private _overlay: HTMLElement | null = null;
   private _unsubscribeAll: Subject<any>;
 
+  /**
+   * Constructor
+   *
+   * @param {DOCUMENT} document
+   * @param {Renderer2} _renderer
+   * @param {ElementRef} _elementRef
+   * @param {CoreConfigService} _coreConfigService
+   * @param {ChangeDetectorRef} _changeDetectorRef
+   * @param {CoreMediaService} _coreMediaService
+   * @param {CoreSidebarService} _coreSidebarService
+   * @param {AnimationBuilder} _animationBuilder
+   * @param {MediaObserver} _mediaObserver
+   */
   constructor(
     @Inject(DOCUMENT) private document: any,
     private _renderer: Renderer2,
@@ -120,7 +133,11 @@ export class CoreSidebarComponent implements OnInit, OnDestroy {
   // Accessors
   // -----------------------------------------------------------------------------------------------------
 
-
+  /**
+   * Collapsed
+   *
+   * @param {boolean} value
+   */
   @Input()
   set collapsed(value: boolean) {
     // Set the collapsed value
@@ -206,6 +223,11 @@ export class CoreSidebarComponent implements OnInit, OnDestroy {
   // Private Methods
   // -----------------------------------------------------------------------------------------------------
 
+  /**
+   * Setup the collapsible sidebar handler
+   *
+   * @private
+   */
   private _setupCollapsibleSidebar(): void {
     // Return if the collapsible sidebar breakpoint was not set from the layout
     if (!this.collapsibleSidebar) {
@@ -296,7 +318,11 @@ export class CoreSidebarComponent implements OnInit, OnDestroy {
     });
   }
 
-
+  /**
+   * Setup the initial collapsed status
+   *
+   * @private
+   */
   private _defaultCollapsed(): void {
     // Return, if sidebar is not collapsed
     if (!this.collapsed) {
@@ -312,7 +338,11 @@ export class CoreSidebarComponent implements OnInit, OnDestroy {
     this.collapse();
   }
 
-
+  /**
+   * Show the overlay
+   *
+   * @private
+   */
   private _showOverlay(): void {
     // Create the overlay element
     this._overlay = this._renderer.createElement('div');
@@ -345,7 +375,11 @@ export class CoreSidebarComponent implements OnInit, OnDestroy {
     this._changeDetectorRef.markForCheck();
   }
 
-
+  /**
+   * Hide the overlay
+   *
+   * @private
+   */
   private _hideOverlay(): void {
     // If overlay is already hidden, return
     if (!this._overlay) {
@@ -373,6 +407,11 @@ export class CoreSidebarComponent implements OnInit, OnDestroy {
     this._changeDetectorRef.markForCheck();
   }
 
+  /**
+   * Change sidebar properties to make it visible
+   *
+   * @private
+   */
   private _showSidebar(): void {
     // If menu as sidebar, add relevant classes to body to show menu
     if (this.name == 'menu') {
@@ -393,7 +432,11 @@ export class CoreSidebarComponent implements OnInit, OnDestroy {
     this._changeDetectorRef.markForCheck();
   }
 
-  
+  /**
+   * Change sidebar properties to make it invisible
+   *
+   * @private
+   */
   private _hideSidebar(): void {
     // If menu as sidebar, add relevant classes to body to show menu
     if (this.name == 'menu') {

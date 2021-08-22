@@ -17,11 +17,6 @@ export class VerticalLayoutComponent implements OnInit, OnDestroy {
   // Private
   private _unsubscribeAll: Subject<any>;
 
-  /**
-   * Constructor
-   *
-   * @param {CoreConfigService} _coreConfigService
-   */
   constructor(private _coreConfigService: CoreConfigService, private _elementRef: ElementRef) {
     // Set the private defaults
     this._unsubscribeAll = new Subject();

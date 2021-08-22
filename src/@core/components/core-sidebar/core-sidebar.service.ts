@@ -8,7 +8,12 @@ export class CoreSidebarService {
   // Private
   private _registry: { [key: string]: CoreSidebarComponent } = {};
 
- 
+  /**
+   * Get the sidebar with the given key
+   *
+   * @param key
+   * @returns {CoreSidebarComponent}
+   */
   getSidebarRegistry(key): CoreSidebarComponent {
     // Check if the sidebar registered
 
@@ -21,7 +26,12 @@ export class CoreSidebarService {
     return this._registry[key];
   }
 
- 
+  /**
+   * Set the sidebar to the registry
+   *
+   * @param key
+   * @param sidebar
+   */
 
   setSidebarRegistry(key, sidebar): void {
     // Check if the key already being used
@@ -37,7 +47,11 @@ export class CoreSidebarService {
     this._registry[key] = sidebar;
   }
 
- 
+  /**
+   * Remove the sidebar from the registry
+   *
+   * @param key
+   */
   removeSidebarRegistry(key): void {
     // Check if the sidebar registered
     if (!this._registry[key]) {

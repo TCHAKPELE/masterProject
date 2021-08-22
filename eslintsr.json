@@ -1,0 +1,51 @@
+{
+    "root": true,
+    "ignorePatterns": [
+      "projects/**/*"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "*.ts"
+        ],
+        "parserOptions": {
+          "project": [
+            "tsconfig.json",
+            "e2e/tsconfig.json"
+          ],
+          "createDefaultProgram": true
+        },
+        "extends": [
+          "plugin:@angular-eslint/recommended",
+          "plugin:@angular-eslint/template/process-inline-templates"
+        ],
+        "rules": {
+          "@angular-eslint/directive-selector": [
+            "error",
+            {
+              "prefix": "",
+              "style": "camelCase",
+              "type": "attribute"
+            }
+          ],
+          "no-unused-vars": "off",
+          "unused-imports/no-unused-imports": "error",
+          "unused-imports/no-unused-vars": [
+            "warn",
+            { "vars": "all", "varsIgnorePattern": "^_", "args": "after-used", "argsIgnorePattern": "^_" }
+          ],
+          "eqeqeq": "error"
+        }
+      },
+      {
+        "files": [
+          "*.html"
+        ],
+        "extends": [
+          "plugin:@angular-eslint/template/recommended"
+        ],
+        "plugins": ["unused-imports"],
+        "rules": {}
+      }
+    ]
+  }

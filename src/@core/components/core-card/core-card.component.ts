@@ -5,7 +5,7 @@ import { BlockUIService } from 'ng-block-ui';
 import { CoreBlockUiComponent } from '@core/components/core-card/core-block-ui/core-block-ui.component';
 
 @Component({
-  selector: 'app-core-card',
+  selector: 'core-card',
   templateUrl: './core-card.component.html'
 })
 export class CoreCardComponent implements OnInit {
@@ -47,7 +47,11 @@ export class CoreCardComponent implements OnInit {
   @ViewChild('coreCard') private coreCard: ElementRef;
   @ViewChild('cardHeader') private cardHeader: ElementRef;
 
-
+  /**
+   * Constructor
+   *
+   * @param {BlockUIService} blockUIService
+   */
   constructor(private blockUIService: BlockUIService) {
     this.events = new EventEmitter<any>();
   }
@@ -80,6 +84,12 @@ export class CoreCardComponent implements OnInit {
     }
   }
 
+  /**
+   *
+   * @param changes
+   *
+   * ng On Changes
+   */
   ngOnChanges(changes: any) {
     if (changes.isReload?.currentValue === true) {
       this.events.emit('reload');

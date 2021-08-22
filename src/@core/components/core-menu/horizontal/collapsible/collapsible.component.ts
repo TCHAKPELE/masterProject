@@ -10,7 +10,7 @@ import { CoreMenuService } from '@core/components/core-menu/core-menu.service';
 import { User } from 'app/auth/models';
 
 @Component({
-  selector: 'app-core-menu-horizontal-collapsible',
+  selector: '[core-menu-horizontal-collapsible]',
   templateUrl: './collapsible.component.html'
 })
 export class CoreMenuHorizontalCollapsibleComponent implements OnInit, OnDestroy {
@@ -30,6 +30,13 @@ export class CoreMenuHorizontalCollapsibleComponent implements OnInit, OnDestroy
   // Private
   private _unsubscribeAll: Subject<any>;
 
+  /**
+   * Constructor
+   *
+   * @param {Router} _router
+   * @param {CoreConfigService} _coreConfigService
+   * @param {CoreMenuService} _coreMenuService
+   */
   constructor(
     private el: ElementRef,
     private _router: Router,
@@ -143,7 +150,13 @@ export class CoreMenuHorizontalCollapsibleComponent implements OnInit, OnDestroy
     });
   }
 
-
+  /**
+   * Confirms if the provided url can be found in one of the given parent's children
+   *
+   * @param parent
+   * @param url
+   * @returns {boolean}
+   */
   confirmUrlInChildren(parent, url): boolean {
     const children = parent.children;
 

@@ -6,7 +6,7 @@ import { takeUntil } from 'rxjs/operators';
 import { CoreMenuService } from '@core/components/core-menu/core-menu.service';
 
 @Component({
-  selector: 'core-menu',
+  selector: '[core-menu]',
   templateUrl: './core-menu.component.html',
   styleUrls: ['./core-menu.component.scss'],
   encapsulation: ViewEncapsulation.None,
@@ -24,7 +24,11 @@ export class CoreMenuComponent implements OnInit {
   // Private
   private _unsubscribeAll: Subject<any>;
 
-
+  /**
+   *
+   * @param {ChangeDetectorRef} _changeDetectorRef
+   * @param {CoreMenuService} _coreMenuService
+   */
   constructor(private _changeDetectorRef: ChangeDetectorRef, private _coreMenuService: CoreMenuService) {
     // Set the private defaults
     this._unsubscribeAll = new Subject();

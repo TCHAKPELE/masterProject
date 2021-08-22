@@ -8,16 +8,11 @@ import { Hero } from './hero';
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     const heroes = [
-      { id: 11, name: 'Dr Nice', Intelligence: 25, Force: 45, Resistance: 55, Role: "Guerrier" },
-      { id: 12, name: 'Narco', Intelligence: 10, Force: 22, Resistance: 85, Role: "Mage" },
-      { id: 13, name: 'Bombasto', Intelligence: 35, Force: 65, Resistance: 45, Role: "Soigneur" },
-      { id: 14, name: 'Celeritas', Intelligence: 55, Force: 75, Resistance: 15, Role: "Guerrier" },
-      { id: 15, name: 'Magneta', Intelligence: 85, Force: 10, Resistance: 65, Role: "Soigneur" },
-      { id: 16, name: 'RubberMan', Intelligence: 55, Force: 50, Resistance: 50, Role: "Guerrier" },
-      { id: 17, name: 'Dynama', Intelligence: 65, Force: 66, Resistance: 75, Role: "Soigneur" },
-      { id: 18, name: 'Dr IQ', Intelligence: 75, Force: 85, Resistance: 15, Role: "Guerrier" },
-      { id: 19, name: 'Magma', Intelligence: 10, Force: 95, Resistance: 80, Role: "Soigneur" },
-      { id: 20, name: 'Tornado', Intelligence: 45, Force: 60, Resistance: 25, Role: "Mage" }
+      { id: 1, name: 'Superman', Intelligence: 25, Force: 45, Resistance: 55, Role: "Guerrier" },
+      { id: 2, name: 'Flash', Intelligence: 10, Force: 22, Resistance: 85, Role: "Mage" },
+      { id: 3, name: 'Green lantern', Intelligence: 35, Force: 65, Resistance: 45, Role: "Soigneur" },
+      { id: 4, name: 'Wolverine', Intelligence: 55, Force: 75, Resistance: 15, Role: "Guerrier" },
+      { id: 5, name: 'Thor', Intelligence: 85, Force: 10, Resistance: 65, Role: "Guerrier" },
     ];
     return { heroes };
   }

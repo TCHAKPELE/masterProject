@@ -35,7 +35,7 @@ export class HomeComponent implements OnInit {
           {
             name: 'Home',
             isLink: true,
-            link: '/'
+            link: '/home'
           }
         ]
       }

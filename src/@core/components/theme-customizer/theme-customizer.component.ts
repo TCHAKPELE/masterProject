@@ -21,7 +21,13 @@ export class CoreThemeCustomizerComponent implements OnInit, OnDestroy {
   // Private
   private _unsubscribeAll: Subject<any>;
 
+  /**
+   * Constructor
 
+   * @param {FormBuilder} _formBuilder
+   * @param {CoreConfigService} _coreConfigService
+   * @param {CoreSidebarService} _coreSidebarService
+   * */
   constructor(
     private _formBuilder: FormBuilder,
     private _coreConfigService: CoreConfigService,
@@ -112,7 +118,12 @@ export class CoreThemeCustomizerComponent implements OnInit, OnDestroy {
   //  Private methods
   // -----------------------------------------------------------------------------------------------------
 
-
+  /**
+   * Reset form values based on the selected menu layout
+   *
+   * @param value
+   * @private
+   */
   private _resetFormValues(value): void {
     switch (value) {
       case 'vertical': {
@@ -176,7 +187,11 @@ export class CoreThemeCustomizerComponent implements OnInit, OnDestroy {
   // Public methods
   // -----------------------------------------------------------------------------------------------------
 
-  
+  /**
+   * Patch selected navbar color value to form
+   *
+   * @param value
+   */
   navbarColor(value): void {
     this.navbarColorValue = value;
     this.form.patchValue({
@@ -184,7 +199,11 @@ export class CoreThemeCustomizerComponent implements OnInit, OnDestroy {
     });
   }
 
-  
+  /**
+   * Toggle sidebar open
+   *
+   * @param key
+   */
   toggleSidebar(key): void {
     this._coreSidebarService.getSidebarRegistry(key).toggleOpen();
   }

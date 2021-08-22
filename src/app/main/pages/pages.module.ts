@@ -26,4 +26,4 @@ import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 
   providers: []
 })
-export class PagesModule {}
+export class PagesModule { }
